@@ -49,7 +49,7 @@
 
     <?php if(!empty($flashMessage['msg'])): ?>
         <div class="msg-container">
-            <p class="msg <?= $flashMessage['type']?>"><?= $flashMessage['msg'] ?></p>
+            <p class="msg <?= $flashMessage['type']?>"><?= $flashMessage['msg']?></p>
         </div>
     <?php endif;?>
     
