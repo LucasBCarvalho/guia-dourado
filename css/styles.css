@@ -56,6 +56,31 @@
     font-weight: bold;
 }
 
+.msg-container {
+    background-color: #ddbb89;
+    padding: 15px;
+}
+  
+.msg {
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px;
+    border: solid 1px #ddbb89;
+    text-align: center;
+}
+
+.msg.error {
+    color: #842029;
+    background-color: #F8D7DA;
+    border-color: #F5C2C7;
+}
+
+.msg.success {
+    color: #0F5132;
+    background-color: #D1E7DD;
+    border-color: #BADBCC;
+}
+
 /* Main */
 #main-container {
     background-color: #ddbb89;
