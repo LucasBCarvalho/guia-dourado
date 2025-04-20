@@ -17,7 +17,7 @@
 }
 
 #main-navbar {
-    background-color: #ddbb89;
+    background-color: #c7a46f;
 }
 
 #search-form {
@@ -25,7 +25,7 @@
     background-color: #FFF;
     border-radius: 5px;
     width: 50%;
-    margin-left: 180px;
+    margin-left: 280px;
 }
 
 #search-form .form-control {
@@ -57,7 +57,7 @@
 }
 
 .msg-container {
-    background-color: #ddbb89;
+    background-color: #c7a46f;
     padding: 15px;
 }
   
@@ -65,7 +65,7 @@
     width: 60%;
     margin: 0 auto;
     padding: 10px;
-    border: solid 1px #ddbb89;
+    border: solid 1px #c7a46f;
     text-align: center;
 }
 
@@ -83,15 +83,49 @@
 
 /* Main */
 #main-container {
-    background-color: #ddbb89;
+    background-color: #c7a46f;
     color: #FFF;
     min-height: 65vh;
     padding: 40px;
 }
 
+/* Login/Regitro */
+#auth-row {
+    justify-content: space-evenly;
+}
+
+#login-container h2,
+#register-container h2 {
+    text-align: center;
+    border-bottom: 2px solid #5a5959;
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#login-container form,
+#register-container form {
+    font-weight: bold;
+    max-width: 400px;
+    margin: 30px auto;
+}
+
+.card-btn {
+    color: #FFF;
+    background-color: #863b41;
+    border: 2px solid #863b41;
+    width: 100%;
+}
+
+.card-btn:hover {
+    background-color: #830b15;
+    color: #FFF;
+    border-color: #830b15;
+}
+
 /* Footer */
 #footer {
-    background-color: #ddbb89;
+    background-color: #c7a46f;
     color: #FFF;
     text-align: center;
     margin: 0;
