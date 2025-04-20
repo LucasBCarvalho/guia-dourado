@@ -20,19 +20,18 @@ class UserDAO implements UserDAOInterface {
         $user = new User();
 
         $user->id = $data['id'];
-        $user->id = $data['name'];
-        $user->id = $data['lastname'];
-        $user->id = $data['email'];
-        $user->id = $data['password'];
-        $user->id = $data['image'];
-        $user->id = $data['bio'];
-        $user->id = $data['token'];
-
+        $user->name = $data['name'];
+        $user->lastname = $data['lastname'];
+        $user->email = $data['email'];
+        $user->password = $data['password'];
+        $user->image = $data['image'];
+        $user->bio = $data['bio'];
+        $user->token = $data['token'];
         return $user;
 
     }
 
-    public function create(User $user, $authUser = false){
+    public function create(User $user, $authUser = false) {
 
         $stmt = $this->conn->prepare(
             "INSERT INTO users(
@@ -63,15 +62,26 @@ class UserDAO implements UserDAOInterface {
 
     }
 
-    public function update(User $user){
+    public function update(User $user) {
 
     }
 
-    public function verifyToken($protected = false){
+    public function verifyToken($protected = false) {
 
+        if (!empty($_SESSION['token'])) {
+            $user = $this->findByToken($_SESSION['token']);
+
+            if ($user) {
+                return $user;
+            } else if ($protected) {
+                $this->message->setMessage("Faça login para acessar essa página!", "error", "index.php");
+            }
+        } else if ($protected) {
+            $this->message->setMessage("Faça login para acessar essa página!", "error", "index.php");
+        }
     }
 
-    public function setTokenToSession($token, $redirect = true){
+    public function setTokenToSession($token, $redirect = true) {
 
         $_SESSION['token'] = $token;
 
@@ -80,11 +90,11 @@ class UserDAO implements UserDAOInterface {
         }
     }
 
-    public function authenticateUser($email, $password){
+    public function authenticateUser($email, $password) {
 
     }
 
-    public function findByEmail($email){
+    public function findByEmail($email) {
 
         if ($email != '') {
             
@@ -107,15 +117,40 @@ class UserDAO implements UserDAOInterface {
         }
     }
 
-    public function findById($id){
+    public function findById($id) {
 
     }
 
-    public function findByToken($token){
+    public function findByToken($token) {
+        if ($token != '') {
+            
+            $stmt = $this->conn->prepare("SELECT * FROM users WHERE token = :token");
+            $stmt->bindParam(":token", $token);
+            $stmt->execute();
+            
+            if ($stmt->rowCount() > 0) {
 
+                $data = $stmt->fetch();
+                $user = $this->buildUser($data);
+                return $user;
+                
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
+        }
     }
 
-    public function changePassword(User $user){
+    public function destroyToken() {
+
+        $_SESSION['token'] = '';
+
+        $this->message->setMessage("Você fez logout com sucesso!", "success", "index.php");
+    }
+
+    public function changePassword(User $user) {
 
     }
 
