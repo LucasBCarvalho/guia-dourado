@@ -97,7 +97,7 @@
 #login-container h2,
 #register-container h2 {
     text-align: center;
-    border-bottom: 2px solid #5a5959;
+    border-bottom: 2px solid #863b41;
     width: 200px;
     margin: 0 auto;
     padding: 10px;
@@ -148,6 +148,31 @@
 
 .edit-profile-page .card-btn {
     width: auto;
+}
+
+/* New Clinic */
+.new-clinic-container {
+    text-align: center;
+}
+
+#add-clinic-form {
+    text-align: left;
+}
+
+.clinic-image-container {
+    height: 400px;
+    min-width: 200px;
+    background-position: center;
+    background-size: cover;
+}
+
+.page-title::after {
+    content: '';
+    width: 300px;
+    border-bottom: 2px solid #863b41;
+    display: block;
+    margin: 0 auto;
+    padding-top: 7px;
 }
 
 /* Footer */
