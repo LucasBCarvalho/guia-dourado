@@ -50,8 +50,10 @@ if ($type === 'update') {
             $message->setMessage("Tipo de imagem inválida, insira png ou jpg!", 'error', 'back');
         }
     }
-
-    $userDao->update($userData);
+    
+    if ($message->getMessage() == false) {
+        $userDao->update($userData);
+    }
 
 } else if ($type === 'changepassword') {
 
