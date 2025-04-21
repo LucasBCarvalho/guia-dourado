@@ -123,6 +123,33 @@
     border-color: #830b15;
 }
 
+/* Edit Profile */
+#profile-image-container {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #863b41;
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+    margin: 15px auto;
+}
+
+#page-description {
+    color: #999;
+}
+
+#bio {
+    max-width: 400px;
+}
+
+.form-control.disabled {
+    background-color: #CCC;
+}
+
+.edit-profile-page .card-btn {
+    width: auto;
+}
+
 /* Footer */
 #footer {
     background-color: #c7a46f;
