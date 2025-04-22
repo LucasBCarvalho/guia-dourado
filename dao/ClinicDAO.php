@@ -18,8 +18,8 @@ class ClinicDAO implements ClinicDAOInterface {
     }
 
     public function buildClinic($data) {
-        $clinic = new Clinic();
 
+        $clinic = new Clinic();
         $clinic->id = $data['id'];
         $clinic->title = $data['title'];
         $clinic->description = $data['description'];
@@ -28,7 +28,9 @@ class ClinicDAO implements ClinicDAOInterface {
         $clinic->category = $data['category'];
         $clinic->legth = $data['legth'];
         $clinic->users_id = $data['users_id'];
+        
         return $clinic;
+
     }
 
     public function findAll() {
