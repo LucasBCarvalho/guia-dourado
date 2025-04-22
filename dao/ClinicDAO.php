@@ -23,11 +23,11 @@ class ClinicDAO implements ClinicDAOInterface {
         $clinic->id = $data['id'];
         $clinic->title = $data['title'];
         $clinic->description = $data['description'];
-        $clinic->email = $data['email'];
-        $clinic->password = $data['password'];
         $clinic->image = $data['image'];
-        $clinic->bio = $data['bio'];
-        $clinic->token = $data['token'];
+        $clinic->trailer = $data['trailer'];
+        $clinic->category = $data['category'];
+        $clinic->legth = $data['legth'];
+        $clinic->users_id = $data['users_id'];
         return $clinic;
     }
 
