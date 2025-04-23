@@ -8,7 +8,7 @@ class Clinic {
     public $image;
     public $trailer;
     public $category;
-    public $legth;
+    public $length;
     public $users_id;
 
     public function imageGenerateName() {

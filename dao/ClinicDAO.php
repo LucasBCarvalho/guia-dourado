@@ -26,7 +26,7 @@ class ClinicDAO implements ClinicDAOInterface {
         $clinic->image = $data['image'];
         $clinic->trailer = $data['trailer'];
         $clinic->category = $data['category'];
-        $clinic->legth = $data['legth'];
+        $clinic->length = $data['legth'];
         $clinic->users_id = $data['users_id'];
         
         return $clinic;
