@@ -46,7 +46,7 @@
             </div>
             <div class="form-group">
                 <label for="description">Descrição:</label>
-                <textarea name="description" id="description" rows="5" class="form-control">Descreva sobre a clínica...</textarea>
+                <textarea name="description" id="description" rows="5" class="form-control" placeholder="Descreva sobre a clínica..."></textarea>
             </div>
             <input type="submit" class="btn card-btn" value="Adicionar Clínica">
         </form>

@@ -32,6 +32,7 @@ if ($type === 'create') {
         $clinic->trailer = $trailer;
         $clinic->category = $category;
         $clinic->length = $length;
+        $clinic->users_id = $userData->id;
 
         if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
 
