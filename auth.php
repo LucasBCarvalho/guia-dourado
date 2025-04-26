@@ -1,5 +1,10 @@
-<?php 
+<?php
     include_once "templates/header.php";
+    include_once "dao/UserDAO.php";
+
+    $userDao = new UserDAO($conn, $BASE_URL);
+
+    $userData = $userDao->verifyToken(false, true);
 ?>
 
 <div id="main-container" class="container-fluid">
@@ -17,7 +22,7 @@
                         <label for="password">Senha:</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha">
                     </div>
-                    <input type="submit" class="btn card-btn" value="Entrar"> 
+                    <input type="submit" class="btn card-btn" value="Entrar">
                 </form>
             </div>
             <div id="register-container" class="col-md-4">
@@ -44,13 +49,13 @@
                         <label for="confirmpassword">Confirmação de senha:</label>
                         <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirme sua senha ">
                     </div>
-                    <input type="submit" class="btn card-btn" value="Cadastrar"> 
+                    <input type="submit" class="btn card-btn" value="Cadastrar">
                 </form>
             </div>
         </div>
     </div>
 </div>
-    
-<?php 
+
+<?php
     include_once "templates/footer.php";
 ?>

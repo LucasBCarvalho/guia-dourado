@@ -88,12 +88,17 @@ class UserDAO implements UserDAOInterface {
         }
     }
 
-    public function verifyToken($protected = false) {
+    public function verifyToken($protected = false, $loggin = false) {
 
         if (!empty($_SESSION['token'])) {
             $user = $this->findByToken($_SESSION['token']);
 
             if ($user) {
+
+                if ($loggin) {
+                    $this->message->setMessage("Você já está logado, deslogue para poder acessar essa página!", "error", "back");
+                }
+
                 return $user;
             } else if ($protected) {
                 $this->message->setMessage("Faça login para acessar essa página!", "error", "index.php");
@@ -101,6 +106,7 @@ class UserDAO implements UserDAOInterface {
         } else if ($protected) {
             $this->message->setMessage("Faça login para acessar essa página!", "error", "index.php");
         }
+
     }
 
     public function setTokenToSession($token, $redirect = true) {

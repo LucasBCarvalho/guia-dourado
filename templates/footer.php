@@ -14,9 +14,9 @@
         </div>
         <div id="footer-links-container">
             <ul>
-                <li><a href="#">Adicionar Clinica</a></li>
+                <li><a href="<?= $BASE_URL ?>/newclinic.php">Adicionar Clinica</a></li>
                 <li><a href="#">Adicionar Crítica</a></li>
-                <li><a href="#">Adicionar Entrar/Registrar</a></li>
+                <li><a href="<?= $BASE_URL ?>/auth.php">Adicionar Entrar/Registrar</a></li>
             </ul>
         </div>
         <p>&copy; GuiaDourado</p>

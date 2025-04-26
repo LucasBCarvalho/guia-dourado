@@ -218,8 +218,11 @@
     background-color: #CCC;
 }
 
-.edit-profile-page .card-btn {
-    width: auto;
+.edit-profile-page .card-btn,
+#add-clinic-container .card-btn,
+#review-form .card-btn,
+#edit-clinic-form .card-btn {
+  width: auto;
 }
 
 /* New Clinic */
@@ -255,7 +258,7 @@
     margin: 0;
     padding: 20px;
 }
-  
+
 #social-container ul,
 #footer-links-container ul {
     list-style-type: none;

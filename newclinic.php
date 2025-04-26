@@ -1,4 +1,4 @@
-<?php 
+<?php
     include_once "templates/header.php";
 
     include_once "dao/UserDAO.php";
@@ -56,7 +56,7 @@
         </form>
     </div>
 </div>
-    
-<?php 
+
+<?php
     include_once "templates/footer.php";
 ?>
