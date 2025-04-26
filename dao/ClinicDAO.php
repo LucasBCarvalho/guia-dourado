@@ -60,6 +60,26 @@ class ClinicDAO implements ClinicDAOInterface {
 
     public function getClinicByCategory($category) {
 
+        $clinics = array();
+
+        $stmt = $this->conn->prepare("SELECT * FROM clinica
+                                        WHERE category = :category
+                                        ORDER BY id DESC");
+        $stmt->bindParam(":category", $category);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+
+            $clinicsArray = $stmt->fetchAll();
+
+            foreach ($clinicsArray as $clinic) {
+
+                $clinics[] = $this->buildClinic($clinic);
+
+            }
+        }
+
+        return $clinics;
     }
 
     public function getClicnicByUserId($id) {

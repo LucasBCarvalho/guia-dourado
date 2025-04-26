@@ -35,9 +35,13 @@
                 <label for="category">Categoria:</label>
                 <select name="category" id="category" class="form-control">
                     <option value="">-- Selecionar categoria --</option>
-                    <option value="Idosos categoria 1">Somente Idosos da Categoria 1</option>
-                    <option value="Idosos categoria 1 e 2">Idosos das Categorias 1 e 2</option>
-                    <option value="Idosos de todas as categorias">Idosos de Todas as Categorias</option>
+                    <option value="1">Somente Idosos da Categoria 1</option>
+                    <option value="2">Somente Idosos da Categoria 2</option>
+                    <option value="3">Somente Idosos da Categoria 3</option>
+                    <option value="4">Idosos das Categorias 1 e 2</option>
+                    <option value="5">Idosos das Categorias 1 e 3</option>
+                    <option value="6">Idosos das Categorias 2 e 3</option>
+                    <option value="7">Idosos de Todas as Categorias</option>
                 </select>
             </div>
             <div class="form-group">
