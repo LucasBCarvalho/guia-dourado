@@ -250,6 +250,73 @@
     padding-top: 7px;
 }
 
+/* Dashboard */
+#add-clinic-container {
+    text-align: right;
+}
+
+#clinics-dashboard .table {
+    color: #FFF;
+}
+
+#clinics-dashboard .table th {
+    border-top: none;
+}
+
+#clinics-dashboard .table tr {
+    padding: 15px 0;
+}
+
+.table-clinic-title {
+    color: #FFF;
+    font-weight: bold;
+    transition: .5;
+}
+
+.table-clinic-title:hover {
+    color: #863b41;
+}
+
+.actions-column {
+    max-width: 75px;
+    text-align: center;
+}
+
+.actions-column form {
+    display: inline-block;
+}
+
+.edit-btn, .delete-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+    font-weight: bold;
+    transition: .5;
+    border: none;
+}
+
+.edit-btn {
+    background-color: #0DCAF0;
+    color: #FFF;
+}
+
+.edit-btn:hover {
+    background-color: #0c95b1;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.delete-btn {
+    background-color: #DC3545;
+    color: #FFF;
+}
+
+.delete-btn:hover {
+    background-color: #a02330;
+    color: #FFF;
+    text-decoration: none;
+}
+
 /* Footer */
 #footer {
     background-color: #c7a46f;

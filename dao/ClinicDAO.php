@@ -61,10 +61,7 @@ class ClinicDAO implements ClinicDAOInterface {
     public function getClinicByCategory($category) {
 
         $clinics = array();
-
-        $stmt = $this->conn->prepare("SELECT * FROM clinica
-                                        WHERE category = :category
-                                        ORDER BY id DESC");
+        $stmt = $this->conn->prepare("SELECT * FROM clinica WHERE category = :category ORDER BY id DESC");
         $stmt->bindParam(":category", $category);
         $stmt->execute();
 
@@ -83,7 +80,23 @@ class ClinicDAO implements ClinicDAOInterface {
     }
 
     public function getClicnicByUserId($id) {
+        $clinics = array();
+        $stmt = $this->conn->prepare("SELECT * FROM clinica WHERE users_id = :users_id");
+        $stmt->bindParam(":users_id", $id);
+        $stmt->execute();
 
+        if ($stmt->rowCount() > 0) {
+
+            $clinicsArray = $stmt->fetchAll();
+
+            foreach ($clinicsArray as $clinic) {
+
+                $clinics[] = $this->buildClinic($clinic);
+
+            }
+        }
+
+        return $clinics;
     }
 
     public function findById($id) {

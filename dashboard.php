@@ -33,20 +33,25 @@
                 <th scope="Col" class="actions-column">Ações</th>
             </thead>
             <tbody>
-                <tr scope="row">
-                    <td><a href="#" class="action-clinic-title">Título</a></td>
-                    <td><i class="fas fa-star"></i></td>
-                    <td class="action-column">
-                        <a href="#" class="edit-btn"><i class="far fa-edit"></i>
+                <?php foreach ($clinicUser as $clinic): ?>
+                <tr>
+                    <td scope="row"><?= $clinic->id ?></td>
+                    <td><a href="<?= $BASE_URL ?>clinic.php?id=<?= $clinic->id ?>" class="table-clinic-title"><?= $clinic->title ?></a></td>
+                    <td><i class="fas fa-star"></i> 9</td>
+                    <td class="actions-column">
+                        <a href="<?= $BASE_URL ?>editclinic.php?id=<?= $clinic->id ?>" class="edit-btn"><i class="far fa-edit"></i>
                             Editar
                         </a>
-                        <form action="">
-                            <button type="submit" class="delet-btn">
-                                <i class="fas-fa-times"></i> Deletar
+                        <form action="<?= $BASE_URL ?>clinic_process.php">
+                            <input type="hidden" name="type" value="delete">
+                            <input type="hidden" name="id" value="<?= $clinic->id ?>">
+                            <button type="submit" class="delete-btn">
+                                <i class="fas fa-times"></i> Deletar
                             </button>
                         </form>
                     </td>
                 </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
