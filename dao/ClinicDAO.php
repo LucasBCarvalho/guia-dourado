@@ -100,6 +100,18 @@ class ClinicDAO implements ClinicDAOInterface {
     }
 
     public function findById($id) {
+        $clinic = array();
+        $stmt = $this->conn->prepare("SELECT * FROM clinica WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $clinicData = $stmt->fetch();
+            $clinic = $this->buildClinic($clinicData);
+            return $clinic;
+        } else {
+            return false;
+        }
 
     }
 
