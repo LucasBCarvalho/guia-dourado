@@ -4,13 +4,13 @@ require_once('models/Clinic.php');
 require_once('models/Message.php');
 
 class ClinicDAO implements ClinicDAOInterface {
-    
+
     private $conn;
     private $url;
     private $message;
 
     public function __construct(PDO $conn, $url) {
-        
+
         $this->conn = $conn;
         $this->url = $url;
         $this->message = new Message($url);
@@ -26,9 +26,9 @@ class ClinicDAO implements ClinicDAOInterface {
         $clinic->image = $data['image'];
         $clinic->trailer = $data['trailer'];
         $clinic->category = $data['category'];
-        $clinic->length = $data['legth'];
+        $clinic->length = $data['length'];
         $clinic->users_id = $data['users_id'];
-        
+
         return $clinic;
 
     }
@@ -39,6 +39,23 @@ class ClinicDAO implements ClinicDAOInterface {
 
     public function getLastClinics() {
 
+        $clinics = array();
+
+        $stmt = $this->conn->query("SELECT * FROM clinica ORDER BY id DESC");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+
+            $clinicsArray = $stmt->fetchAll();
+
+            foreach ($clinicsArray as $clinic) {
+
+                $clinics[] = $this->buildClinic($clinic);
+
+            }
+        }
+
+        return $clinics;
     }
 
     public function getClinicByCategory($category) {
@@ -60,20 +77,20 @@ class ClinicDAO implements ClinicDAOInterface {
     public function create(Clinic $clinic) {
 
         $stmt = $this->conn->prepare("INSERT INTO clinica (
-            title, 
-            description, 
-            image, 
-            trailer, 
-            category, 
-            length, 
+            title,
+            description,
+            image,
+            trailer,
+            category,
+            length,
             users_id
         ) VALUES (
-            :title, 
-            :description, 
-            :image, 
-            :trailer, 
-            :category, 
-            :length, 
+            :title,
+            :description,
+            :image,
+            :trailer,
+            :category,
+            :length,
             :users_id
         );");
 

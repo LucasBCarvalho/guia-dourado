@@ -26,7 +26,7 @@ if ($type === 'create') {
     $clinic = new Clinic();
 
     if (!empty($title) && !empty($description) && !empty($category)) {
-        
+
         $clinic->title = $title;
         $clinic->description = $description;
         $clinic->trailer = $trailer;
@@ -39,19 +39,19 @@ if ($type === 'create') {
             $image      = $_FILES['image'];
             $imageTypes = ['image/jpeg', 'image/jpg', 'image/png'];
             $jpgArray   = ['image/jpeg', 'image/jpg'];
-            
+
             if (in_array($image['type'], $imageTypes)) {
                 if (in_array($image['type'], $jpgArray)) {
                     $imageFile = imagecreatefromjpeg($image['tmp_name']);
                 } else {
                     $imageFile = imagecreatefrompng($image['tmp_name']);
                 }
-    
+
                 $imageName = $clinic->imageGenerateName();
-                imagejpeg($imageFile, './img/users/' . $imageName, 100);
-    
+                imagejpeg($imageFile, './img/clinics/' . $imageName, 100);
+
                 $clinic->image = $imageName;
-    
+
             } else {
                 $message->setMessage("Tipo de imagem inválida, insira png ou jpg!", 'error', 'back');
             }
