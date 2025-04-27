@@ -196,7 +196,8 @@
 }
 
 /* Edit Profile */
-#profile-image-container {
+#profile-image-container,
+.profile-image-container {
     width: 150px;
     height: 150px;
     border: 2px solid #863b41;
@@ -204,6 +205,11 @@
     background-size: cover;
     background-position: center;
     margin: 15px auto;
+}
+
+.profile-image-container {
+    width: 70px;
+    height: 70px;
 }
 
 #page-description {
@@ -248,6 +254,57 @@
     display: block;
     margin: 0 auto;
     padding-top: 7px;
+}
+
+/* Clinic */
+.clinics-container {
+    text-align: center;
+}
+
+.clinic-details {
+    margin: 25px 0;
+}
+
+.pipe {
+    border: 1px solid #5c5c5c;
+    margin: 0 10px;
+}
+
+#reviews-title {
+    margin-bottom: 25px;
+}
+
+#review-form-container {
+    background-color: #997d53;
+    padding: 20px;
+}
+
+#review-form-container select,
+#review-form-container textarea {
+    width: 50%;
+}
+
+#reviews-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 4px solid #863b41;
+}
+
+.review {
+    padding: 20px 0;
+    border-bottom: 1px solid #5c5c5c;
+}
+
+.author-details-container {
+    padding-top: 20px;
+}
+
+.author-name a {
+    color: #842029;
+}
+
+.comment-title {
+    color: #504848;
 }
 
 /* Dashboard */

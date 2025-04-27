@@ -39,7 +39,7 @@
 ?>
 <div id="main-container" class="container-fluid">
     <div class="row">
-        <div class="offset-md-1 col-md-6 clinic-container">
+        <div class="offset-md-1 col-md-6 clinics-container">
             <h1 class="page-title"><?= $clinic->title ?></h1>
             <p class="clinic-details">
                 <span>Duração: <?= $clinic->length ?></span>
@@ -97,7 +97,7 @@
                         <p><i class="fas fa-star"></i> 9</p>
                     </div>
                     <div class="col-md-12">
-                        <p class="comment-title">comentário:</p>
+                        <p class="comment-title">Comentário:</p>
                         <p>Este é o comentario do usuário</p>
                     </div>
                 </div>
