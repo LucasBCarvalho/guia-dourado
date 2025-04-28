@@ -42,7 +42,7 @@
                         <a href="<?= $BASE_URL ?>editclinic.php?id=<?= $clinic->id ?>" class="edit-btn"><i class="far fa-edit"></i>
                             Editar
                         </a>
-                        <form action="<?= $BASE_URL ?>clinic_process.php">
+                        <form action="<?= $BASE_URL ?>clinic_process.php" method="POST">
                             <input type="hidden" name="type" value="delete">
                             <input type="hidden" name="id" value="<?= $clinic->id ?>">
                             <button type="submit" class="delete-btn">

@@ -158,6 +158,11 @@ class ClinicDAO implements ClinicDAOInterface {
 
     public function destroy($id) {
 
+        $stmt = $this->conn->prepare("DELETE FROM clinica WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        $this->message->setMessage("Clínica removida com sucesso!", "success", "dashboard.php");
     }
 
 

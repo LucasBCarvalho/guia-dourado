@@ -65,6 +65,21 @@ if ($type === 'create') {
         $message->setMessage("Você precisa preencher pelo menos: título, descrição e categoria! ", 'error', 'back');
     }
 
+} else if ($type === 'delete') {
+
+    $id     = filter_input(INPUT_POST, 'id');
+    $clinic = $clinicDao->findById($id);
+
+    if ($clinic) {
+        if ($clinic->users_id === $userData->id) {
+            $clinicDao->destroy($clinic->id);
+        } else {
+            $message->setMessage("Informações inválidas!", 'error', 'index.php');
+        }
+    } else {
+        $message->setMessage("Informações inválidas!", 'error', 'index.php');
+    }
+
 } else {
     $message->setMessage("Informações inválidas!", 'error', 'index.php');
 }
