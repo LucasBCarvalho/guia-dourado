@@ -53,8 +53,8 @@
             <iframe src="<?= $clinic->trailer ?>" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p><?= $clinic->description ?></p>
         </div>
-        <div class="col-md-4">
-            <div class="clinic-image-container" style="background-image: url('<?= $BASE_URL ?>img/clinics/<?= $clinic->image ?>')"></div>
+        <div class="col-md-3">
+            <div class="clinic-image-container" style="background-image: url('<?= $BASE_URL ?>img/clinics/<?= $clinic->image ?>') "></div>
         </div>
         <div class="offset-md-1 col-md-10" id="reviews-container">
             <h3 id="reviews-title">Avaliações:</h3>

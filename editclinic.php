@@ -72,7 +72,7 @@
                         <label for="description">Descrição:</label>
                         <textarea name="description" id="description" rows="5" class="form-control" placeholder="Descreva sobre a clínica..."><?= $clinic->description ?></textarea>
                     </div>
-                    <input type="submit" class="btn card-btn" value="Adicionar Clínica">
+                    <input type="submit" class="btn card-btn" value="Editar Clínica">
                 </form>
             </div>
             <div class="col-md-3">

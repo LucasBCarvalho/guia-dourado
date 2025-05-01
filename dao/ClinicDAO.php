@@ -40,8 +40,7 @@ class ClinicDAO implements ClinicDAOInterface {
     public function getLastClinics() {
 
         $clinics = array();
-
-        $stmt = $this->conn->query("SELECT * FROM clinica ORDER BY id DESC");
+        $stmt    = $this->conn->query("SELECT * FROM clinica ORDER BY id DESC");
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -61,7 +60,7 @@ class ClinicDAO implements ClinicDAOInterface {
     public function getClinicByCategory($category) {
 
         $clinics = array();
-        $stmt = $this->conn->prepare("SELECT * FROM clinica WHERE category = :category ORDER BY id DESC");
+        $stmt    = $this->conn->prepare("SELECT * FROM clinica WHERE category = :category ORDER BY id DESC");
         $stmt->bindParam(":category", $category);
         $stmt->execute();
 
@@ -81,7 +80,7 @@ class ClinicDAO implements ClinicDAOInterface {
 
     public function getClicnicByUserId($id) {
         $clinics = array();
-        $stmt = $this->conn->prepare("SELECT * FROM clinica WHERE users_id = :users_id");
+        $stmt    = $this->conn->prepare("SELECT * FROM clinica WHERE users_id = :users_id");
         $stmt->bindParam(":users_id", $id);
         $stmt->execute();
 
@@ -101,7 +100,7 @@ class ClinicDAO implements ClinicDAOInterface {
 
     public function findById($id) {
         $clinic = array();
-        $stmt = $this->conn->prepare("SELECT * FROM clinica WHERE id = :id");
+        $stmt   = $this->conn->prepare("SELECT * FROM clinica WHERE id = :id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
 
@@ -154,6 +153,26 @@ class ClinicDAO implements ClinicDAOInterface {
 
     public function update(Clinic $clinic) {
 
+        $stmt       = $this->conn->prepare("UPDATE clinica SET
+        title       = :title,
+        description = :description,
+        image       = :image,
+        trailer     = :trailer,
+        category    = :category,
+        length      = :length
+        WHERE id    = :id;");
+
+        $stmt->bindParam(":title", $clinic->title);
+        $stmt->bindParam(":description", $clinic->description);
+        $stmt->bindParam(":image", $clinic->image);
+        $stmt->bindParam(":trailer", $clinic->trailer);
+        $stmt->bindParam(":category", $clinic->category);
+        $stmt->bindParam(":length", $clinic->length);
+        $stmt->bindParam(":id", $clinic->id);
+
+        $stmt->execute();
+
+        $this->message->setMessage("Clínica atualizado com sucesso!", "success", "dashboard.php");
     }
 
     public function destroy($id) {

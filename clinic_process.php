@@ -80,6 +80,68 @@ if ($type === 'create') {
         $message->setMessage("Informações inválidas!", 'error', 'index.php');
     }
 
+} else if ($type === 'update') {
+
+    $title = filter_input(INPUT_POST, 'title');
+    $description = filter_input(INPUT_POST, 'description');
+    $trailer = filter_input(INPUT_POST, 'trailer');
+    $category = filter_input(INPUT_POST, 'category');
+    $length = filter_input(INPUT_POST, 'length');
+    $id = filter_input(INPUT_POST, 'id');
+
+    $clinicData = $clinicDao->findById($id);
+
+    if ($clinicData) {
+
+        if ($clinicData->users_id === $userData->id) {
+
+            if (!empty($title) && !empty($description) && !empty($category)) {
+                $clinicData->title = $title;
+                $clinicData->description = $description;
+                $clinicData->trailer = $trailer;
+                $clinicData->category = $category;
+                $clinicData->length = $length;
+
+                if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
+
+                    $image      = $_FILES['image'];
+                    $imageTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+                    $jpgArray   = ['image/jpeg', 'image/jpg'];
+
+                    if (in_array($image['type'], $imageTypes)) {
+                        if (in_array($image['type'], $jpgArray)) {
+                            $imageFile = imagecreatefromjpeg($image['tmp_name']);
+                        } else {
+                            $imageFile = imagecreatefrompng($image['tmp_name']);
+                        }
+
+                        $clinic = new Clinic();
+                        $imageName = $clinic->imageGenerateName();
+                        imagejpeg($imageFile, './img/clinics/' . $imageName, 100);
+
+                        $clinicData->image = $imageName;
+
+                    } else {
+                        $message->setMessage("Tipo de imagem inválida, insira png ou jpg!", 'error', 'back');
+                    }
+                }
+
+                if ($message->getMessage() == false) {
+                    $clinicDao->update($clinicData);
+                }
+
+            } else {
+                $message->setMessage("Você precisa preencher pelo menos: título, descrição e categoria! ", 'error', 'back');
+            }
+
+        } else {
+            $message->setMessage("Informações inválidas!", 'error', 'index.php');
+        }
+
+    } else {
+        $message->setMessage("Informações inválidas!", 'error', 'index.php');
+    }
+
 } else {
     $message->setMessage("Informações inválidas!", 'error', 'index.php');
 }
