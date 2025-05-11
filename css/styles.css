@@ -42,7 +42,7 @@
     justify-content: flex-end;
     width: 100%;
   }
-  
+
 .navbar-nav .nav-item .nav-link {
     color: #FFF;
     transition: .5s;
@@ -60,7 +60,7 @@
     background-color: #c7a46f;
     padding: 15px;
 }
-  
+
 .msg {
     width: 60%;
     margin: 0 auto;
@@ -229,6 +229,47 @@
 #review-form .card-btn,
 #edit-clinic-form .card-btn {
   width: auto;
+}
+
+/* Profile */
+.profile-container {
+    justify-content: center;
+}
+
+.profile-container .profile-image {
+    margin: 20px auto;
+}
+
+.about-title {
+    color: #FFF;
+}
+
+.profile-description {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.added-clinics-container,
+.about-container {
+    padding-top: 20px;
+}
+
+.about-container {
+    text-align: center;
+    background-color: #d4b88c;
+    border-bottom: 3px solid #dfdcdc;
+}
+
+.added-clinics-container {
+    background-color: #d4b88c;
+}
+
+.added-clinics-container .clinic-container {
+    padding: 20px;
+}
+
+.added-clinics-container .clinic-card {
+    width: 31%;
 }
 
 /* New Clinic */
