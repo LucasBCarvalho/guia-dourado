@@ -1,41 +1,41 @@
 <?php
 
-    require_once("templates/header.php");
-    require_once("models/User.php");
-    require_once("dao/UserDAO.php");
-    require_once("dao/ClinicDAO.php");
+require_once("templates/header.php");
+require_once("models/User.php");
+require_once("dao/UserDAO.php");
+require_once("dao/ClinicDAO.php");
 
-    $user = new User();
-    $userDao = new UserDAO($conn, $BASE_URL);
-    $clinicDao = new ClinicDAO($conn, $BASE_URL);
+$user = new User();
+$userDao = new UserDAO($conn, $BASE_URL);
+$clinicDao = new ClinicDAO($conn, $BASE_URL);
 
-    $id = filter_input(INPUT_GET, 'id');
+$id = filter_input(INPUT_GET, 'id');
 
-    if (empty($id)) {
+if (empty($id)) {
 
-        if (!empty($userData)) {
+    if (!empty($userData)) {
 
-            $id = $userData->id;
+        $id = $userData->id;
 
-        } else {
-            $message->setMessage("Usuário não encontrado! ", 'error', 'index.php');
-        }
     } else {
-
-        $userData = $userDao->findById($id);
-
-        if (!$userData) {
-            $message->setMessage("Usuário não encontrado! ", 'error', 'index.php');
-        }
+        $message->setMessage("Usuário não encontrado! ", 'error', 'index.php');
     }
+} else {
 
-    $fullName = $user->getFullName($userData);
+    $userData = $userDao->findById($id);
 
-    if ($userData->image == "") {
-        $userData->image = "user.png";
+    if (!$userData) {
+        $message->setMessage("Usuário não encontrado! ", 'error', 'index.php');
     }
+}
 
-    $userClinics = $clinicDao->getClicnicByUserId($id);
+$fullName = $user->getFullName($userData);
+
+if ($userData->image == "") {
+    $userData->image = "user.png";
+}
+
+$userClinics = $clinicDao->getClicnicByUserId($id);
 
 ?>
 

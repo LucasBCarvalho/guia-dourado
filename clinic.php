@@ -3,6 +3,7 @@
     include_once "templates/header.php";
 
     include_once "dao/ClinicDAO.php";
+    include_once "dao/ReviewDAO.php";
     include_once "models/Clinic.php";
     include_once "models/Message.php";
 
@@ -11,6 +12,9 @@
     $clinic;
 
     $clinicDao = new ClinicDAO($conn, $BASE_URL);
+
+    $reviewDao = new ReviewDAO($conn, $BASE_URL);
+
     $message = new Message($BASE_URL);
 
     if (empty($id)) {
@@ -34,9 +38,11 @@
         if ($userData->id === $clinic->users_id) {
             $userOwnsClinic = true;
         }
+
+        $alreadlyReviewed = $reviewDao->hasAlreadlyReviewed($id, $userData->id);
     }
 
-    $alreadlyReviewed = false;
+    $clinicsReview = $reviewDao->getClinicsReview($id);
 
 ?>
 <div id="main-container" class="container-fluid">
@@ -89,23 +95,13 @@
                 </form>
             </div>
             <?php endif; ?>
-            <div class="col-md-12 review">
-                <div class="row">
-                    <div class="col-md-1">
-                        <div class="profile-image-container review-image" style="background-image: url('<?= $BASE_URL ?>img/users/user.png')"></div>
-                    </div>
-                    <div class="col-md-9 author-details-container">
-                        <h4 class="author-name">
-                            <a href="#">Lucas</a>
-                        </h4>
-                        <p><i class="fas fa-star"></i> 9</p>
-                    </div>
-                    <div class="col-md-12">
-                        <p class="comment-title">Comentário:</p>
-                        <p>Este é o comentario do usuário</p>
-                    </div>
-                </div>
-            </div>
+            <!-- Comentários -->
+            <?php foreach($clinicsReview as $review): ?>
+                <?php require("templates/user_review.php"); ?>
+            <?php endforeach; ?>
+            <?php if(count($clinicsReview) == 0): ?>
+                <p class="empty-list">Não a comentários sobre essa clínica ainda...</p>
+            <?php endif; ?>
         </div>
     </div>
 </div>
