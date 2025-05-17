@@ -3,6 +3,8 @@
 require_once('models/Clinic.php');
 require_once('models/Message.php');
 
+require_once('dao/ReviewDAO.php');
+
 class ClinicDAO implements ClinicDAOInterface {
 
     private $conn;
@@ -28,6 +30,12 @@ class ClinicDAO implements ClinicDAOInterface {
         $clinic->category = $data['category'];
         $clinic->length = $data['length'];
         $clinic->users_id = $data['users_id'];
+
+        $reviewDao = new ReviewDAO($this->conn, $this->url);
+
+        $rating = $reviewDao->getRatings($clinic->id);
+
+        $clinic->rating = $rating;
 
         return $clinic;
 

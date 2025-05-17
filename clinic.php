@@ -54,7 +54,7 @@
                 <span class="pipe"></span>
                 <span><?= $clinic->category ?></span>
                 <span class="pipe"></span>
-                <span><i class="fas fa-star"></i> 9</span>
+                <span><i class="fas fa-star"></i> <?= $clinic->rating ?></span>
             </p>
             <iframe src="<?= $clinic->trailer ?>" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p><?= $clinic->description ?></p>

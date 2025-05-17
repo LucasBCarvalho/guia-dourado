@@ -37,7 +37,7 @@
                 <tr>
                     <td scope="row"><?= $clinic->id ?></td>
                     <td><a href="<?= $BASE_URL ?>clinic.php?id=<?= $clinic->id ?>" class="table-clinic-title"><?= $clinic->title ?></a></td>
-                    <td><i class="fas fa-star"></i> 9</td>
+                    <td><i class="fas fa-star"></i> <?= $clinic->rating ?></td>
                     <td class="actions-column">
                         <a href="<?= $BASE_URL ?>editclinic.php?id=<?= $clinic->id ?>" class="edit-btn"><i class="far fa-edit"></i>
                             Editar
