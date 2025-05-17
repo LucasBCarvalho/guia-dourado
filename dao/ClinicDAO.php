@@ -108,7 +108,7 @@ class ClinicDAO implements ClinicDAOInterface {
 
     public function findById($id) {
         $clinic = array();
-        $stmt   = $this->conn->prepare("SELECT * FROM clinica WHERE id = :id");
+        $stmt   = $this->conn->prepare("SELECT * FROM clinica LEFT JOIN categories on clinica.category = categories.id WHERE clinica.id = :id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
 

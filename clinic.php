@@ -52,7 +52,7 @@
             <p class="clinic-details">
                 <span>Duração: <?= $clinic->length ?></span>
                 <span class="pipe"></span>
-                <span><?= $clinic->category ?></span>
+                <span><?= $clinic->description ?></span>
                 <span class="pipe"></span>
                 <span><i class="fas fa-star"></i> <?= $clinic->rating ?></span>
             </p>
