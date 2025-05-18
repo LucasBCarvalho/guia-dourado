@@ -473,7 +473,7 @@ margin: 0 19px;
 }
 
 /* Responsividade */
-@media(max-width: 450px) {
+@media(max-width: 480px) {
 
     #main-container {
         padding: 20px;
