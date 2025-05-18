@@ -41,11 +41,12 @@
                 <img src="<?= $BASE_URL?>img/logo-guia-dourado.png" alt="GuiaDourado" id="logo">
                 <span id="guia-dourado-title">GuiaDourado</span>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
+
             <form action="<?= $BASE_URL ?>search.php" method="GET" id="search-form" class="form-inline my-2 my-lg-0">
-                <input type="text" name="q" id="search" class="form-control mr-sm-2" type="search" placeholder="Buscar Filmes" aria-label="Search">
+                <input type="text" name="q" id="search" class="form-control mr-sm-2" placeholder="Buscar Filmes" aria-label="Search">
                 <button class="btn my-2 my-sm-0" type="submit">
                 <i class="fas fa-search"></i>
                 </button>
@@ -85,3 +86,4 @@
             <p class="msg <?= $flashMessage['type']?>"><?= $flashMessage['msg']?></p>
         </div>
     <?php endif;?>
+
