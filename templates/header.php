@@ -85,4 +85,3 @@
             <p class="msg <?= $flashMessage['type']?>"><?= $flashMessage['msg']?></p>
         </div>
     <?php endif;?>
-    

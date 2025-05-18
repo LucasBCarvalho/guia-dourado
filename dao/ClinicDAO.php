@@ -124,6 +124,24 @@ class ClinicDAO implements ClinicDAOInterface {
 
     public function findByTitle($title) {
 
+        $clinics = array();
+        $stmt    = $this->conn->prepare("SELECT * FROM clinica WHERE title LIKE :title");
+        $stmt->bindValue(":title",  "%" . $title . "%");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+
+            $clinicsArray = $stmt->fetchAll();
+
+            foreach ($clinicsArray as $clinic) {
+
+                $clinics[] = $this->buildClinic($clinic);
+
+            }
+        }
+
+        return $clinics;
+
     }
 
     public function create(Clinic $clinic) {
